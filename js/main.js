@@ -1095,10 +1095,3 @@ const promoCards = document.querySelectorAll('.promo-card');
 promoCards.forEach((card, index) => {
     card.style.animationDelay = `${index * 0.2}s`;
 });
-
-// Inicia a galáxia criativa com foguetes
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createTwinklingStars);
-} else {
-    createTwinklingStars();
-}
