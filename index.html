@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Modern company website with animations">
-    <title>My Company - Innovative Solutions</title>
+    <meta name="description" content="LunaDev - Desenvolvimento de Sites, Lojas Virtuais e Cardápios Digitais. Promoções especiais! Transforme seu negócio hoje!">
+    <title>LunaDev - Sites, Lojas Virtuais e Cardápios Digitais | Promoção Limitada!</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <h2>MyCompany</h2>
+                <h2><i class="fas fa-moon"></i> Luna<span style="color: #ec4899;">Dev</span></h2>
             </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#promo" class="nav-link">🔥 Promoções</a></li>
+                <li><a href="#services" class="nav-link">Serviços</a></li>
+                <li><a href="#portfolio" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -32,37 +34,167 @@
     <section class="hero" id="home">
         <div class="hero-background"></div>
         <div class="container hero-content">
-            <h1 class="hero-title animate-fade-in">Welcome to the Future</h1>
-            <p class="hero-subtitle animate-fade-in-delay">Innovative solutions for modern businesses</p>
-            <a href="#contact" class="btn btn-primary animate-fade-in-delay-2">Get Started</a>
+            <div class="hero-badge animate-fade-in">🔥 PROMOÇÃO ESPECIAL ESTA SEMANA</div>
+            <h1 class="hero-title animate-fade-in">Seu Negócio <span class="highlight">Precisa de um Site</span><br>Agora!</h1>
+            <p class="hero-subtitle animate-fade-in-delay">Sites, Lojas Virtuais e Cardápios Digitais Profissionais<br><strong style="color: #fbbf24; font-size: 28px;">✨ COM DESCONTO ESPECIAL HOJE!</strong></p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="#promo" class="btn btn-primary"><i class="fas fa-gift"></i> Ver Promoções</a>
+                <a href="#portfolio" class="btn btn-secondary"><i class="fas fa-eye"></i> Ver Projetos</a>
+            </div>
+            <div class="hero-stats animate-fade-in-delay-2">
+                <div class="hero-stat">
+                    <i class="fas fa-fire"></i>
+                    <span><strong>Últimas Vagas</strong> com Desconto</span>
+                </div>
+                <div class="hero-stat">
+                    <i class="fas fa-rocket"></i>
+                    <span><strong>Entrega Rápida</strong> em 7 dias</span>
+                </div>
+                <div class="hero-stat">
+                    <i class="fas fa-check-circle"></i>
+                    <span><strong>Garantia</strong> de Qualidade</span>
+                </div>
+            </div>
         </div>
         <div class="scroll-indicator">
             <div class="mouse"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- Promoções Section -->
+    <section class="promo-section" id="promo">
+        <div class="promo-canvas-container"></div>
         <div class="container">
-            <h2 class="section-title fade-in">About Us</h2>
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <p>We are a leading company dedicated to providing innovative solutions that transform businesses. With years of experience and a passionate team, we deliver excellence in everything we do.</p>
-                    <p>Our mission is to empower organizations through technology, creativity, and strategic thinking. We believe in building lasting relationships with our clients and creating value that goes beyond expectations.</p>
+            <div class="section-header fade-in">
+                <span class="section-badge">🔥 Promoções Imperdíveis</span>
+                <h2 class="section-title">Ofertas <span class="highlight-text">Exclusivas</span> Esta Semana!</h2>
+                <p class="section-subtitle">Aproveite os descontos especiais e coloque seu negócio online agora!</p>
+            </div>
+            <div class="promo-timer fade-in">
+                <div class="timer-text">⏰ Promoção termina em:</div>
+                <div class="timer-display">
+                    <div class="timer-box">
+                        <span class="timer-number" id="days">03</span>
+                        <span class="timer-label">Dias</span>
+                    </div>
+                    <div class="timer-box">
+                        <span class="timer-number" id="hours">14</span>
+                        <span class="timer-label">Horas</span>
+                    </div>
+                    <div class="timer-box">
+                        <span class="timer-number" id="minutes">23</span>
+                        <span class="timer-label">Min</span>
+                    </div>
+                    <div class="timer-box">
+                        <span class="timer-number" id="seconds">45</span>
+                        <span class="timer-label">Seg</span>
+                    </div>
                 </div>
-                <div class="about-stats fade-in">
-                    <div class="stat-card">
-                        <h3 class="stat-number" data-target="500">0</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 class="stat-number" data-target="150">0</h3>
-                        <p>Happy Clients</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3 class="stat-number" data-target="50">0</h3>
-                        <p>Team Members</p>
-                    </div>
+            </div>
+            <div class="promo-grid">
+                <div class="promo-card fade-in hot-deal">
+                    <div class="promo-ribbon">SUPER OFERTA 🔥</div>
+                    <div class="promo-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Cardápio Digital Completo</h3>
+                    <p style="text-align: center; color: #ec4899; font-size: 16px; font-weight: 600; margin: 15px 0; padding: 10px 0; border-top: 2px solid #fbbf24; border-bottom: 2px solid #fbbf24;">⚡ <strong>PROMOÇÃO ESPECIAL</strong> ⚡</p>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Design profissional e atrativo</li>
+                        <li><i class="fas fa-check"></i> Pedidos direto no WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Menu completo com fotos</li>
+                        <li><i class="fas fa-check"></i> Fácil de atualizar preços</li>
+                        <li><i class="fas fa-check"></i> 100% Responsivo</li>
+                        <li><i class="fas fa-check"></i> Entrega em 5 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20sobre%20a%20promo%u00e7%u00e3o%20do%20Card%u00e1pio%20Digital%20e%20quanto%20fica!" class="promo-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento Agora
+                    </a>
+                    <p class="promo-urgency">⚡ Apenas 3 vagas restantes!</p>
+                </div>
+                <div class="promo-card fade-in">
+                    <div class="promo-ribbon">OFERTA ESPECIAL ⭐</div>
+                    <div class="promo-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Site Profissional</h3>
+                    <p style="text-align: center; color: #ec4899; font-size: 16px; font-weight: 600; margin: 15px 0; padding: 10px 0; border-top: 2px solid #fbbf24; border-bottom: 2px solid #fbbf24;">⚡ <strong>PROMOÇÃO ESPECIAL</strong> ⚡</p>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> Design exclusivo para sua marca</li>
+                        <li><i class="fas fa-check"></i> Até 5 páginas completas</li>
+                        <li><i class="fas fa-check"></i> Otimizado para Google (SEO)</li>
+                        <li><i class="fas fa-check"></i> Formulário de contato</li>
+                        <li><i class="fas fa-check"></i> Integração com redes sociais</li>
+                        <li><i class="fas fa-check"></i> Entrega em 7 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20sobre%20a%20promo%u00e7%u00e3o%20do%20Site%20Profissional%20e%20quanto%20fica!" class="promo-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento Agora
+                    </a>
+                    <p class="promo-urgency">⚡ Apenas 2 vagas restantes!</p>
+                </div>
+                <div class="promo-card fade-in">
+                    <div class="promo-ribbon">LANÇAMENTO 🚀</div>
+                    <div class="promo-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Loja Virtual Completa</h3>
+                    <p style="text-align: center; color: #ec4899; font-size: 16px; font-weight: 600; margin: 15px 0; padding: 10px 0; border-top: 2px solid #fbbf24; border-bottom: 2px solid #fbbf24;">⚡ <strong>PROMOÇÃO ESPECIAL</strong> ⚡</p>
+                    <ul class="promo-features">
+                        <li><i class="fas fa-check"></i> E-commerce profissional</li>
+                        <li><i class="fas fa-check"></i> Carrinho de compras</li>
+                        <li><i class="fas fa-check"></i> Integração com pagamento</li>
+                        <li><i class="fas fa-check"></i> Gestão de produtos</li>
+                        <li><i class="fas fa-check"></i> Painel administrativo</li>
+                        <li><i class="fas fa-check"></i> Entrega em 15 dias</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20sobre%20a%20promo%u00e7%u00e3o%20da%20Loja%20Virtual%20e%20quanto%20fica!" class="promo-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Solicitar Orçamento Agora
+                    </a>
+                    <p class="promo-urgency">⚡ Última vaga!</p>
+                </div>
+            </div>
+            <div class="promo-cta fade-in">
+                <h3>💬 Não sabe qual escolher?</h3>
+                <p>Fale comigo no WhatsApp e vou te ajudar a escolher a melhor opção para seu negócio!</p>
+                <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20as%20promoções%20e%20quero%20saber%20mais%20informações!" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar Agora no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose" id="why">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-badge">Por Que Escolher a LunaDev</span>
+                <h2 class="section-title">Seus Concorrentes Já Estão Online. <br><span class="highlight-text">E Você?</span></h2>
+                <p class="section-subtitle">Não perca mais clientes! Tenha presença digital profissional e aumente suas vendas</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Seu site ou cardápio digital pronto em até 7 dias. Tempo é dinheiro!</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>100% Responsivo</h3>
+                    <p>Funciona perfeitamente em celulares, tablets e computadores</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Otimizado para Vendas</h3>
+                    <p>Design estratégico focado em converter visitantes em clientes</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Suporte Dedicado</h3>
+                    <p>Atendimento personalizado via WhatsApp sempre que precisar</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguro & Confiável</h3>
+                    <p>Tecnologia de ponta com segurança garantida para seus dados</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Preço Justo</h3>
+                    <p>Investimento acessível com excelente custo-benefício</p>
                 </div>
             </div>
         </div>
@@ -71,37 +203,186 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="section-header fade-in">
+                <span class="section-badge">Nossos Serviços</span>
+                <h2 class="section-title">Soluções Digitais Que <span class="highlight-text">Geram Resultados</span></h2>
+                <p class="section-subtitle">Escolha o serviço ideal para impulsionar seu negócio</p>
+            </div>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites and web applications built with modern technologies and best practices.</p>
+                <div class="service-card fade-in featured">
+                    <div class="popular-badge">🔥 Mais Vendido</div>
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Cardápio Digital</h3>
+                    <p>Cardápio online completo com fotos, preços e pedidos via WhatsApp. Perfeito para restaurantes, lanchonetes e bares!</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design atrativo e profissional</li>
+                        <li><i class="fas fa-check"></i> Pedidos direto pelo WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Fácil atualização de preços</li>
+                    </ul>
+                    <a href="#packages" class="service-btn">Ver Pacotes <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card fade-in featured">
+                    <div class="popular-badge">⚡ Popular</div>
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Site Profissional</h3>
+                    <p>Site institucional completo para sua empresa, com design moderno e otimizado para Google.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design exclusivo e responsivo</li>
+                        <li><i class="fas fa-check"></i> Otimizado para SEO (Google)</li>
+                        <li><i class="fas fa-check"></i> Formulário de contato integrado</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20mais%20sobre%20Site%20Profissional!" class="service-btn" target="_blank">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">📱</div>
-                    <h3>Mobile Apps</h3>
-                    <p>Native and cross-platform mobile applications that deliver exceptional user experiences.</p>
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Loja Virtual</h3>
+                    <p>E-commerce completo para vender seus produtos online 24/7 com sistema de pagamento integrado.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Carrinho de compras</li>
+                        <li><i class="fas fa-check"></i> Pagamento online integrado</li>
+                        <li><i class="fas fa-check"></i> Gestão de estoque</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20mais%20sobre%20Loja%20Virtual!" class="service-btn" target="_blank">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">🎨</div>
-                    <h3>UI/UX Design</h3>
-                    <p>Beautiful, intuitive designs that engage users and enhance brand identity.</p>
+                    <div class="service-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Sistema de Agendamento</h3>
+                    <p>Sistema online para agendamentos de serviços, ideal para salões, clínicas e consultórios.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Agenda online automatizada</li>
+                        <li><i class="fas fa-check"></i> Notificações por WhatsApp</li>
+                        <li><i class="fas fa-check"></i> Controle de horários</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20mais%20sobre%20Sistema%20de%20Agendamento!" class="service-btn" target="_blank">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">☁️</div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Scalable cloud infrastructure and services to power your business growth.</p>
+                    <div class="service-icon"><i class="fas fa-link"></i></div>
+                    <h3>Link Bio Profissional</h3>
+                    <p>Página única com todos seus links importantes. Perfeito para Instagram e redes sociais!</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Design personalizado</li>
+                        <li><i class="fas fa-check"></i> Links ilimitados</li>
+                        <li><i class="fas fa-check"></i> Analytics integrado</li>
+                    </ul>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20saber%20mais%20sobre%20Link%20Bio!" class="service-btn" target="_blank">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="service-card fade-in">
-                    <div class="service-icon">🔒</div>
-                    <h3>Security</h3>
-                    <p>Comprehensive security solutions to protect your data and systems.</p>
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Sistema Personalizado</h3>
+                    <p>Desenvolvemos o sistema que você precisa! CRM, ERP, gestão de clientes e muito mais.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 100% sob medida</li>
+                        <li><i class="fas fa-check"></i> Integração com APIs</li>
+                        <li><i class="fas fa-check"></i> Automação de processos</li>
+                    </ul>
+                    <a href="#contact" class="service-btn">Solicitar Orçamento <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card fade-in">
-                    <div class="service-icon">📊</div>
-                    <h3>Analytics</h3>
-                    <p>Data-driven insights to help you make informed business decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-badge">Meus Projetos</span>
+                <h2 class="section-title">Trabalhos Que <span class="highlight-text">Geram Resultados</span></h2>
+                <p class="section-subtitle">Confira alguns projetos que desenvolvi e que estão trazendo lucro para meus clientes</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🍕</div>
+                        <div class="portfolio-overlay">
+                            <h4>Pizza Express</h4>
+                            <p>Cardápio Digital Interativo</p>
+                            <span class="portfolio-result">+180% pedidos online</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20Pizza%20Express%20e%20quero%20algo%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">🏪</div>
+                        <div class="portfolio-overlay">
+                            <h4>Loja BellaVita</h4>
+                            <p>E-commerce Completo</p>
+                            <span class="portfolio-result">R$ 80k em vendas/mês</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20BellaVita%20e%20quero%20uma%20loja%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">🏢</div>
+                        <div class="portfolio-overlay">
+                            <h4>Advocacia Silva</h4>
+                            <p>Site Profissional</p>
+                            <span class="portfolio-result">+300% contatos</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20Advocacia%20Silva%20e%20quero%20algo%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">🍔</div>
+                        <div class="portfolio-overlay">
+                            <h4>Burger Station</h4>
+                            <p>Cardápio + Sistema de Pedidos</p>
+                            <span class="portfolio-result">+250% conversão</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20Burger%20Station%20e%20quero%20algo%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">💆</div>
+                        <div class="portfolio-overlay">
+                            <h4>Spa Relax</h4>
+                            <p>Site + Agendamento Online</p>
+                            <span class="portfolio-result">+90% agendamentos</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20Spa%20Relax%20e%20quero%20algo%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in">
+                    <div class="portfolio-image">
+                        <div class="portfolio-placeholder" style="background: linear-gradient(135deg, #fa8bff 0%, #2bd2ff 90%);">👔</div>
+                        <div class="portfolio-overlay">
+                            <h4>Consultoria Pro</h4>
+                            <p>Landing Page de Conversão</p>
+                            <span class="portfolio-result">+400% leads</span>
+                            <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20o%20projeto%20Consultoria%20Pro%20e%20quero%20algo%20assim!" class="portfolio-btn" target="_blank">Quero Igual!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-cta fade-in">
+                <h3>🚀 Quer seu projeto aqui também?</h3>
+                <p>Entre em contato agora e vamos criar algo incrível para o seu negócio!</p>
+                <a href="https://wa.me/5511937701183?text=Oi!%20Vi%20seus%20projetos%20e%20quero%20desenvolver%20o%20meu!" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Começar Meu Projeto Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>🚀 Pronto Para Decolar Seu Negócio?</h2>
+                <p>Cada dia sem presença digital é dinheiro perdido! Seus concorrentes já estão vendendo online.<br><strong style="font-size: 24px; color: #fbbf24;">Aproveite as PROMOÇÕES e comece HOJE!</strong></p>
+                <div class="cta-buttons">
+                    <a href="#promo" class="btn btn-primary" style="background: #fbbf24; color: #000;">
+                        <i class="fas fa-gift"></i> Ver Promoções Especiais
+                    </a>
+                    <a href="https://wa.me/5511937701183?text=Oi!%20Quero%20conversar%20sobre%20um%20projeto!" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp Agora
+                    </a>
+                </div>
+                <div class="cta-urgency">
+                    <i class="fas fa-fire"></i> <strong>ATENÇÃO:</strong> Promoções terminam em 3 dias! Garanta seu desconto!
                 </div>
             </div>
         </div>
@@ -110,40 +391,141 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <form class="contact-form fade-in" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" class="form-input" placeholder=" " required>
-                    <label for="name" class="form-label">Name</label>
+            <div class="section-header fade-in">
+                <span class="section-badge">Contato</span>
+                <h2 class="section-title">Vamos <span class="highlight-text">Começar Seu Projeto</span>?</h2>
+                <p class="section-subtitle">Preencha o formulário e receba uma proposta personalizada em até 24h</p>
+            </div>
+            <div class="contact-wrapper">
+                <form class="contact-form fade-in" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Seu Nome</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" class="form-input" placeholder=" " required>
+                            <label for="phone" class="form-label">WhatsApp</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="form-input" placeholder=" " required>
+                        <label for="email" class="form-label">Seu E-mail</label>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" class="form-input" required>
+                            <option value="">Selecione o serviço...</option>
+                            <option value="cardapio">Cardápio Digital</option>
+                            <option value="site">Site Profissional</option>
+                            <option value="loja">Loja Virtual</option>
+                            <option value="agendamento">Sistema de Agendamento</option>
+                            <option value="linkbio">Link Bio</option>
+                            <option value="personalizado">Sistema Personalizado</option>
+                        </select>
+                        <label for="service" class="form-label">Serviço Desejado</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" class="form-input" rows="5" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">Conte-nos sobre seu projeto</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Solicitar Orçamento Grátis
+                    </button>
+                    <p class="form-privacy">🔒 Seus dados estão seguros. Não compartilhamos com terceiros.</p>
+                </form>
+                <div class="contact-info fade-in">
+                    <div class="info-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/5511937701183" target="_blank">(11) 93770-1183</a>
+                        <span class="status-online">● Online agora</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>E-mail</h3>
+                        <a href="mailto:contato@webpro.com">contato@webpro.com</a>
+                        <span>Resposta em até 24h</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horário</h3>
+                        <p>Segunda a Sexta<br>9h às 18h</p>
+                    </div>
+                    <div class="trust-badges">
+                        <div class="badge-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Pagamento<br>Seguro</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-award"></i>
+                            <span>Projetos<br>Garantidos</span>
+                        </div>
+                        <div class="badge-item">
+                            <i class="fas fa-users"></i>
+                            <span>+200<br>Clientes</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" class="form-input" placeholder=" " required>
-                    <label for="email" class="form-label">Email</label>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="subject" class="form-input" placeholder=" " required>
-                    <label for="subject" class="form-label">Subject</label>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" class="form-input" rows="5" placeholder=" " required></textarea>
-                    <label for="message" class="form-label">Message</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 MyCompany. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" class="social-link">LinkedIn</a>
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">GitHub</a>
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3><i class="fas fa-moon"></i> LunaDev</h3>
+                    <p>Desenvolvimento Web Profissional. Sites, Lojas Virtuais e Cardápios Digitais que geram resultados para seu negócio.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#services">Cardápio Digital</a></li>
+                        <li><a href="#services">Site Profissional</a></li>
+                        <li><a href="#services">Loja Virtual</a></li>
+                        <li><a href="#services">Sistemas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#promo">Promoções</a></li>
+                        <li><a href="#portfolio">Projetos</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fab fa-whatsapp"></i> (11) 93770-1183</li>
+                        <li><i class="fas fa-envelope"></i> rlluna15@hotmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LunaDev. Todos os direitos reservados.</p>
+                <div class="footer-badges">
+                    <span><i class="fas fa-lock"></i> Site Seguro</span>
+                    <span><i class="fas fa-certificate"></i> Certificado SSL</span>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5511937701183?text=Olá!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20os%20serviços" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-pulse"></span>
+    </a>
 
     <script src="js/main.js"></script>
 </body>
