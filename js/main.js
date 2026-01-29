@@ -399,6 +399,7 @@ function createPromoBackgroundAnimation() {
         }
 
         draw() {
+            if (!ctx) return;
             const x = centralPlanet.x + Math.cos(this.angle) * this.distance;
             const y = centralPlanet.y + Math.sin(this.angle) * this.distance;
 
@@ -440,6 +441,7 @@ function createPromoBackgroundAnimation() {
         }
 
         draw() {
+            if (!ctx) return;
             const gradient = ctx.createLinearGradient(this.startX, this.startY, this.endX, this.endY);
             gradient.addColorStop(0, 'rgba(6, 182, 212, 0)');
             gradient.addColorStop(this.progress * 0.5, 'rgba(6, 182, 212, 0.8)');
@@ -826,7 +828,7 @@ contactForm.addEventListener('submit', async (e) => {
     whatsappMessage += `📱 *WhatsApp:* ${phone || 'Não informado'}\n`;
     whatsappMessage += `💼 *Serviço:* ${serviceName}\n\n`;
     whatsappMessage += `📝 *Mensagem:*\n${message}\n\n`;
-    whatsappMessage += `_Enviado através do site LunaDev_`;
+    whatsappMessage += `_Enviado através do site DevLuna_`;
 
     // Codificar mensagem para URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -993,7 +995,7 @@ function animateCircles() {
 animateCircles();
 
 // Console message for developers
-console.log('%c🚀 LunaDev - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
+console.log('%c🚀 DevLuna - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
 console.log('%c✨ Quer um site como este? Entre em contato!', 'color: #ec4899; font-size: 16px;');
 
 // Promo Timer Countdown

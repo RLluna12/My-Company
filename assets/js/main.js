@@ -304,7 +304,7 @@ function animateCircles() {
 animateCircles();
 
 // Console message for developers
-console.log('%c🚀 LunaDev - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
+console.log('%c🚀 DevLuna - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
 console.log('%c✨ Quer um site como este? Entre em contato!', 'color: #ec4899; font-size: 16px;');
 
 // Promo Timer Countdown
