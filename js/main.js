@@ -807,16 +807,51 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
     submitBtn.disabled = true;
 
-    // Simulate form submission (replace with actual API call)
+    // Traduzir nome do serviço
+    const serviceNames = {
+        'cardapio': 'Cardápio Digital',
+        'site': 'Site Profissional',
+        'loja': 'Loja Virtual',
+        'agendamento': 'Sistema de Agendamento',
+        'linkbio': 'Link Bio',
+        'personalizado': 'Sistema Personalizado'
+    };
+
+    const serviceName = serviceNames[service] || service;
+
+    // Criar mensagem para WhatsApp
+    let whatsappMessage = `🚀 *SOLICITAÇÃO DE ORÇAMENTO*\n\n`;
+    whatsappMessage += `👤 *Nome:* ${name}\n`;
+    whatsappMessage += `📧 *Email:* ${email}\n`;
+    whatsappMessage += `📱 *WhatsApp:* ${phone || 'Não informado'}\n`;
+    whatsappMessage += `💼 *Serviço:* ${serviceName}\n\n`;
+    whatsappMessage += `📝 *Mensagem:*\n${message}\n\n`;
+    whatsappMessage += `_Enviado através do site LunaDev_`;
+
+    // Codificar mensagem para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    
+    // Número do WhatsApp (formato: 55 + DDD + número)
+    const whatsappNumber = '5511937701183';
+    
+    // Criar URL do WhatsApp
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Aguardar 1 segundo e redirecionar
     setTimeout(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
 
-        // Show success message
-        showMessage('🎉 Proposta solicitada com sucesso! Entraremos em contato em até 24h.', 'success');
+        // Mostrar mensagem de sucesso
+        showMessage('✅ Redirecionando para o WhatsApp...', 'success');
 
-        // Reset form
-        contactForm.reset();
+        // Abrir WhatsApp em nova aba
+        window.open(whatsappURL, '_blank');
+
+        // Reset form após 2 segundos
+        setTimeout(() => {
+            contactForm.reset();
+        }, 2000);
 
         // Track conversion (você pode adicionar Google Analytics aqui)
         if (typeof gtag !== 'undefined') {
@@ -826,7 +861,7 @@ contactForm.addEventListener('submit', async (e) => {
                 'currency': 'BRL'
             });
         }
-    }, 2000);
+    }, 1000);
 });
 
 // Email validation
