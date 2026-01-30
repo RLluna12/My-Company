@@ -107,6 +107,8 @@ ns2.dns-parking.com
 - Você verá uma pasta chamada **`public_html`**
 - **Duplo clique** para entrar nela
 
+> ✅ **Se você removeu tudo do gerenciador**: é só reenviar os arquivos listados no passo 3A.3.
+
 #### Passo 3A.2: Limpar a Pasta
 Se houver arquivos/pastas antigos:
 - Selecione tudo (Ctrl + A)
