@@ -1,228 +1,18 @@
 // ============================================
-// EFEITO DE GALÁXIA CRIATIVA COM FOGUETES
+// EFEITO DE GALÁXIA CRIATIVA COM FOGUETES - DESATIVADO
 // ============================================
 
-
 function createTwinklingStars() {
-    createGalaxyBackground();
+    // Efeito desativado
+    return;
 }
 
 // ============================================
-// SISTEMA PLANETÁRIO NA SEÇÃO DE PROMOÇÕES
+// SISTEMA PLANETÁRIO NA SEÇÃO DE PROMOÇÕES - DESATIVADO
 // ============================================
 function createPromoBackgroundAnimation() {
-    const promoContainer = document.querySelector('.promo-canvas-container');
-    if (!promoContainer) return;
-
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    canvas.style.cssText = `
-        display: block;
-        width: 100%;
-        height: 100%;
-    `;
-
-    promoContainer.appendChild(canvas);
-
-    function resizeCanvas() {
-        canvas.width = promoContainer.offsetWidth;
-        canvas.height = promoContainer.offsetHeight;
-    }
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // ===== PLANETA CENTRAL =====
-    const centralPlanet = {
-        x: canvas.width / 2,
-        y: canvas.height / 2,
-        radius: 40,
-        color: '#06b6d4',
-        rotation: 0,
-        getX() { return this.x; },
-        getY() { return this.y; }
-    };
-
-  
-
-    // ===== PARTÍCULAS DE ENERGIA =====
-    class EnergyParticle {
-        constructor() {
-            this.angle = Math.random() * Math.PI * 2;
-            this.distance = Math.random() * 200 + 50;
-            this.speed = Math.random() * 0.005 + 0.002;
-            this.size = Math.random() * 2 + 1;
-            this.opacity = 0.8;
-            this.color = ['rgba(6, 182, 212,', 'rgba(236, 72, 153,', 'rgba(251, 191, 36,'][Math.floor(Math.random() * 3)];
-        }
-
-        update() {
-            this.angle += this.speed;
-            this.distance *= 0.98;
-            this.opacity *= 0.95;
-        }
-
-        draw() {
-            if (!ctx) return;
-            const x = centralPlanet.x + Math.cos(this.angle) * this.distance;
-            const y = centralPlanet.y + Math.sin(this.angle) * this.distance;
-
-            const gradient = ctx.createRadialGradient(x, y, 0, x, y, this.size * 3);
-            gradient.addColorStop(0, this.color + this.opacity + ')');
-            gradient.addColorStop(1, this.color + '0)');
-
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(x, y, this.size * 3, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.fillStyle = this.color + (this.opacity * 0.9) + ')';
-            ctx.beginPath();
-            ctx.arc(x, y, this.size * 0.5, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        isAlive() {
-            return this.opacity > 0.05;
-        }
-    }
-
-    let energyParticles = [];
-
-    // ===== CONSTRUTOR HOLOGRÁFICO =====
-    class DataStream {
-        constructor(fromX, fromY, toX, toY) {
-            this.startX = fromX;
-            this.startY = fromY;
-            this.endX = toX;
-            this.endY = toY;
-            this.progress = 0;
-            this.speed = Math.random() * 0.02 + 0.01;
-        }
-
-        update() {
-            this.progress += this.speed;
-        }
-
-        draw() {
-            if (!ctx) return;
-            const gradient = ctx.createLinearGradient(this.startX, this.startY, this.endX, this.endY);
-            gradient.addColorStop(0, 'rgba(6, 182, 212, 0)');
-            gradient.addColorStop(this.progress * 0.5, 'rgba(6, 182, 212, 0.8)');
-            gradient.addColorStop(this.progress, 'rgba(236, 72, 153, 0.6)');
-            gradient.addColorStop(1, 'rgba(124, 58, 237, 0)');
-
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = 2;
-            ctx.lineCap = 'round';
-            ctx.beginPath();
-            ctx.moveTo(this.startX, this.startY);
-            ctx.lineTo(
-                this.startX + (this.endX - this.startX) * this.progress,
-                this.startY + (this.endY - this.startY) * this.progress
-            );
-            ctx.stroke();
-        }
-
-        isComplete() {
-            return this.progress >= 1;
-        }
-    }
-
-    let dataStreams = [];
-    let streamCounter = 0;
-
-    // ===== LOOP DE ANIMAÇÃO =====
-    function animate() {
-        // Background transparente para não cobrir o fundo amarelo
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Atualiza posição do planeta central (rotação visual)
-        centralPlanet.rotation += 0.002;
-
-        // ===== DESENHAR ÓRBITAS =====
-        satellites.forEach(sat => {
-            // Órbita estática
-            ctx.strokeStyle = 'rgba(6, 182, 212, 0.3)';
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.arc(centralPlanet.x, centralPlanet.y, sat.distance, 0, Math.PI * 2);
-            ctx.stroke();
-        });
-
-      
-        
-        // ===== DESENHAR PLANETA CENTRAL =====
-        // Glow externo
-        const mainGlow = ctx.createRadialGradient(centralPlanet.x, centralPlanet.y, 0, centralPlanet.x, centralPlanet.y, centralPlanet.radius * 3.5);
-        mainGlow.addColorStop(0, 'rgba(6, 182, 212, 0.8)');
-        mainGlow.addColorStop(0.5, 'rgba(6, 182, 212, 0.3)');
-        mainGlow.addColorStop(1, 'rgba(6, 182, 212, 0)');
-        
-        ctx.fillStyle = mainGlow;
-        ctx.beginPath();
-        ctx.arc(centralPlanet.x, centralPlanet.y, centralPlanet.radius * 3, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Planeta com gradiente
-        const planetGradient = ctx.createRadialGradient(
-            centralPlanet.x - 10, centralPlanet.y - 10, 0,
-            centralPlanet.x, centralPlanet.y, centralPlanet.radius
-        );
-        planetGradient.addColorStop(0, 'rgba(6, 182, 212, 1)');
-        planetGradient.addColorStop(0.7, 'rgba(6, 182, 212, 0.9)');
-        planetGradient.addColorStop(1, 'rgba(124, 58, 237, 0.7)');
-
-        ctx.fillStyle = planetGradient;
-        ctx.beginPath();
-        ctx.arc(centralPlanet.x, centralPlanet.y, centralPlanet.radius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Anéis rotativos
-        ctx.strokeStyle = 'rgba(236, 72, 153, 0.3)';
-        ctx.lineWidth = 2;
-        ctx.save();
-        ctx.translate(centralPlanet.x, centralPlanet.y);
-        ctx.rotate(centralPlanet.rotation);
-        ctx.beginPath();
-        ctx.ellipse(0, 0, centralPlanet.radius * 2.5, centralPlanet.radius * 0.8, 0, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.restore();
-
-        // Centro brilhante
-        const coreGradient = ctx.createRadialGradient(centralPlanet.x, centralPlanet.y, 0, centralPlanet.x, centralPlanet.y, centralPlanet.radius * 0.3);
-        coreGradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
-        coreGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        
-        ctx.fillStyle = coreGradient;
-        ctx.beginPath();
-        ctx.arc(centralPlanet.x, centralPlanet.y, centralPlanet.radius * 0.3, 0, Math.PI * 2);
-        ctx.fill();
-
-        // ===== DESENHAR STREAMS DE DADOS =====
-        dataStreams = dataStreams.filter(stream => !stream.isComplete());
-        dataStreams.forEach(stream => {
-            stream.update();
-            stream.draw();
-
-            // Cria partículas ao longo do stream
-            if (Math.random() < 0.5) {
-                energyParticles.push(new EnergyParticle());
-            }
-        });
-
-        // ===== DESENHAR PARTÍCULAS DE ENERGIA =====
-        energyParticles = energyParticles.filter(p => p.isAlive());
-        energyParticles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
+    // Animação desativada
+    return;
 }
 
 // Inicia a animação de promoções quando o DOM estiver pronto
@@ -258,17 +48,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-
-// Inicia o efeito de estrelas quando o DOM estiver pronto
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createTwinklingStars);
-} else {
-    createTwinklingStars();
-}
-
-// ============================================
-// FIM DO EFEITO DE ESTRELAS
-// ============================================
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
