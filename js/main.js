@@ -44,19 +44,7 @@ function createPromoBackgroundAnimation() {
         getY() { return this.y; }
     };
 
-    // ===== SATÉLITES ORBITANTES =====
-    const satellites = [];
-    
-    for (let i = 0; i < 5; i++) {
-        satellites.push({
-            distance: 120 + i * 50,
-            angle: (i / 5) * Math.PI * 2,
-            speed: 0.003 + Math.random() * 0.002,
-            size: 8 - i,
-            color: ['#ec4899', '#fbbf24', '#10b981', '#8b5cf6', '#f97316'][i],
-            trail: []
-        });
-    }
+  
 
     // ===== PARTÍCULAS DE ENERGIA =====
     class EnergyParticle {
@@ -163,57 +151,8 @@ function createPromoBackgroundAnimation() {
             ctx.stroke();
         });
 
-        // ===== DESENHAR SATÉLITES =====
-        satellites.forEach((sat, idx) => {
-            sat.angle += sat.speed;
-
-            const x = centralPlanet.x + Math.cos(sat.angle) * sat.distance;
-            const y = centralPlanet.y + Math.sin(sat.angle) * sat.distance;
-
-            // Trilha
-            sat.trail.push({x, y, opacity: 0.3});
-            if (sat.trail.length > 20) sat.trail.shift();
-
-            // Desenha trilha
-            for (let i = 0; i < sat.trail.length - 1; i++) {
-                const p1 = sat.trail[i];
-                const p2 = sat.trail[i + 1];
-                ctx.strokeStyle = `rgba(107, 114, 128, ${p1.opacity * 0.3})`;
-                ctx.lineWidth = sat.size * 0.5;
-                ctx.beginPath();
-                ctx.moveTo(p1.x, p1.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.stroke();
-            }
-
-            // Glow ao redor do satélite
-            const glowGradient = ctx.createRadialGradient(x, y, 0, x, y, sat.size * 5);
-            glowGradient.addColorStop(0, sat.color.replace(')', ', 0.6)').replace('rgb', 'rgba'));
-            glowGradient.addColorStop(1, sat.color.replace(')', ', 0)').replace('rgb', 'rgba'));
-            
-            ctx.fillStyle = glowGradient;
-            ctx.beginPath();
-            ctx.arc(x, y, sat.size * 4, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Satélite
-            ctx.fillStyle = sat.color;
-            ctx.beginPath();
-            ctx.arc(x, y, sat.size, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Brilho central
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-            ctx.beginPath();
-            ctx.arc(x, y, sat.size * 0.3, 0, Math.PI * 2);
-            ctx.fill();
-
-            // Cria stream de dados
-            if (Math.random() < 0.02) {
-                dataStreams.push(new DataStream(x, y, centralPlanet.x, centralPlanet.y));
-            }
-        });
-
+      
+        
         // ===== DESENHAR PLANETA CENTRAL =====
         // Glow externo
         const mainGlow = ctx.createRadialGradient(centralPlanet.x, centralPlanet.y, 0, centralPlanet.x, centralPlanet.y, centralPlanet.radius * 3.5);
