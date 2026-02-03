@@ -399,7 +399,10 @@ function animateCircles() {
     requestAnimationFrame(animateCircles);
 }
 
-animateCircles();
+// Only run cursor trail on desktop
+if (window.innerWidth > 768) {
+    animateCircles();
+}
 
 // Console message for developers
 console.log('%c🚀 DevLuna - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
