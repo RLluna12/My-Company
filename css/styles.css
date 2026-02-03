@@ -682,13 +682,17 @@ section {
     margin-bottom: 15px;
 }
 
+.service-card:hover h3 {
+    color: var(--white);
+}
+
 .service-card p {
     color: var(--gray);
     line-height: 1.6;
 }
 
 .service-card:hover p {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
 }
 
 /* Contact Section */
@@ -830,6 +834,10 @@ section {
         font-size: 18px;
     }
 
+    .scroll-indicator {
+        display: none;
+    }
+
     .section-title {
         font-size: 32px;
     }
@@ -857,11 +865,6 @@ section {
     .service-card:focus {
         transform: none !important;
         box-shadow: var(--shadow) !important;
-    }
-
-    .service-card:hover::before,
-    .service-card:active::before {
-        opacity: 0 !important;
     }
 
     .service-card:hover > *,
@@ -1374,7 +1377,7 @@ section {
 }
 
 .service-card:hover .service-features li {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--white);
 }
 
 .service-card:hover .service-features i {
@@ -1394,6 +1397,10 @@ section {
 
 .service-card:hover .service-btn {
     color: var(--white);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--white);
 }
 
 /* Portfolio Section */
