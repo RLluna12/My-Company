@@ -343,13 +343,13 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add cursor trail effect (only on desktop)
+// Add cursor trail effect (only on desktop - disabled on mobile and tablets)
 let animationFrameId = null;
 const coords = { x: 0, y: 0 };
 let allCircles = [];
 
 function setupCursorTrail() {
-    const isDesktop = window.innerWidth > 768;
+    const isDesktop = window.innerWidth > 1024; // Changed from 768 to 1024 to exclude tablets
     
     if (isDesktop && allCircles.length === 0) {
         // Create cursor trail circles ONLY on desktop
