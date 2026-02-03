@@ -146,27 +146,46 @@ statNumbers.forEach(stat => {
     statsObserver.observe(stat);
 });
 
-// Service cards hover effect with tilt
+// Service cards hover effect with tilt - desabilitar em mobile
 const serviceCards = document.querySelectorAll('.service-card');
 
+// Verificar se é mobile
+const isMobile = window.innerWidth <= 768;
+
+function cleanServiceCardStyles() {
+    serviceCards.forEach(card => {
+        card.style.transform = '';
+    });
+}
+
 serviceCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    if (!isMobile) {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
 
-        card.style.transform = `translateY(-5px) scale(1.01) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
+            card.style.transform = `translateY(-5px) scale(1.01) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
-    });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    }
+});
+
+// Limpar estilos ao redimensionar janela
+window.addEventListener('resize', () => {
+    const currentIsMobile = window.innerWidth <= 768;
+    if (currentIsMobile) {
+        cleanServiceCardStyles();
+    }
 });
 
 // Form validation and submission
