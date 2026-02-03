@@ -210,8 +210,11 @@ body {
     background-image: url('../public/img/hero.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
     z-index: 0;
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
     
 .hero-background::before {
@@ -227,7 +230,7 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 10;
     text-align: center;
     color: var(--white);
     animation: slideInUp 1s ease-out;
@@ -449,7 +452,9 @@ body {
     color: var(--white);
     border: 2px solid var(--white);
     position: relative;
-    z-index: 1;
+    z-index: 10;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn-secondary:hover {
@@ -504,6 +509,8 @@ body {
     flex-wrap: wrap;
     margin-bottom: 40px;
     animation: buttonsSlide 1.3s ease-out;
+    position: relative;
+    z-index: 10;
 }
 
 @keyframes buttonsSlide {
@@ -2119,5 +2126,33 @@ section {
         width: 55px;
         height: 55px;
         font-size: 28px;
+    }
+}
+
+/* iOS/Safari Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix para iOS/Safari - imagem hero */
+    .hero-background {
+        background-attachment: scroll !important;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+    
+    /* Garantir que botões sejam clicáveis no iOS */
+    .btn {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        cursor: pointer;
+    }
+    
+    .btn-secondary {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Força o hardware acceleration para melhor performance */
+    .hero {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
