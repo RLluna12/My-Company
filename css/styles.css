@@ -897,6 +897,27 @@ section {
         color: var(--primary-color) !important;
     }
 
+    /* Featured card no mobile - com fundo roxo e texto branco */
+    .service-card.featured {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+        border: none !important;
+    }
+
+    .service-card.featured,
+    .service-card.featured h3,
+    .service-card.featured p,
+    .service-card.featured .service-features li {
+        color: var(--white) !important;
+    }
+
+    .service-card.featured .service-icon {
+        color: var(--accent-color) !important;
+    }
+
+    .service-card.featured .service-features i {
+        color: var(--accent-light) !important;
+    }
+
     .btn:hover,
     .btn:active,
     .btn-primary:hover,
