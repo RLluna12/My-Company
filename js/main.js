@@ -343,66 +343,81 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Add cursor trail effect (optional - can be removed if too much)
+// Add cursor trail effect (only on desktop)
+let animationFrameId = null;
 const coords = { x: 0, y: 0 };
-const circles = document.querySelectorAll('.circle');
+let allCircles = [];
 
-if (circles.length === 0) {
-    // Create cursor trail circles
-    for (let i = 0; i < 20; i++) {
-        const circle = document.createElement('div');
-        circle.className = 'circle';
-        circle.style.cssText = `
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 9999;
-        `;
-        document.body.appendChild(circle);
+function setupCursorTrail() {
+    const isDesktop = window.innerWidth > 768;
+    
+    if (isDesktop && allCircles.length === 0) {
+        // Create cursor trail circles ONLY on desktop
+        for (let i = 0; i < 20; i++) {
+            const circle = document.createElement('div');
+            circle.className = 'circle';
+            circle.style.cssText = `
+                position: fixed;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s;
+                z-index: 9999;
+            `;
+            circle.x = 0;
+            circle.y = 0;
+            document.body.appendChild(circle);
+            allCircles.push(circle);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
+
+        function animateCircles() {
+            let x = coords.x;
+            let y = coords.y;
+
+            allCircles.forEach((circle, index) => {
+                circle.style.left = x - 5 + 'px';
+                circle.style.top = y - 5 + 'px';
+                circle.style.opacity = (20 - index) / 40;
+
+                circle.x = x;
+                circle.y = y;
+
+                const nextCircle = allCircles[index + 1] || allCircles[0];
+                x += (nextCircle.x - x) * 0.3;
+                y += (nextCircle.y - y) * 0.3;
+            });
+
+            animationFrameId = requestAnimationFrame(animateCircles);
+        }
+
+        animateCircles();
+    } else if (!isDesktop && allCircles.length > 0) {
+        // Remove circles on mobile
+        allCircles.forEach(circle => circle.remove());
+        allCircles = [];
+        
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
     }
 }
 
-const allCircles = document.querySelectorAll('.circle');
+// Setup on load
+setupCursorTrail();
 
-allCircles.forEach((circle, index) => {
-    circle.x = 0;
-    circle.y = 0;
+// Re-setup on window resize
+window.addEventListener('resize', () => {
+    setupCursorTrail();
 });
-
-window.addEventListener('mousemove', (e) => {
-    coords.x = e.clientX;
-    coords.y = e.clientY;
-});
-
-function animateCircles() {
-    let x = coords.x;
-    let y = coords.y;
-
-    allCircles.forEach((circle, index) => {
-        circle.style.left = x - 5 + 'px';
-        circle.style.top = y - 5 + 'px';
-        circle.style.opacity = (20 - index) / 40;
-
-        circle.x = x;
-        circle.y = y;
-
-        const nextCircle = allCircles[index + 1] || allCircles[0];
-        x += (nextCircle.x - x) * 0.3;
-        y += (nextCircle.y - y) * 0.3;
-    });
-
-    requestAnimationFrame(animateCircles);
-}
-
-// Only run cursor trail on desktop
-if (window.innerWidth > 768) {
-    animateCircles();
-}
 
 // Console message for developers
 console.log('%c🚀 DevLuna - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
