@@ -206,7 +206,7 @@ body {
 
 /* Social links no menu */
 .nav-social-links {
-    display: flex;
+    display: none; /* Ocultar em desktop */
     gap: 15px;
     align-items: center;
     margin-left: 20px;
@@ -952,6 +952,7 @@ section {
     }
 
     .nav-social-links {
+        display: flex; /* Mostrar em mobile */
         flex-direction: row;
         gap: 20px;
         margin-left: 0;
