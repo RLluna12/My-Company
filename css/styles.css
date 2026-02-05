@@ -1617,20 +1617,20 @@ section {
 .portfolio-cta {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
-    padding: 50px 60px;
+    padding: 90px 30px;
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow-lg);
 }
 
 .portfolio-cta h3 {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 30px;
+    margin-bottom: 80px;
 }
 
 .portfolio-cta p {
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: 12px;
+    margin-bottom: 50px;
     opacity: 0.95;
 }
 
