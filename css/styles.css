@@ -2,7 +2,7 @@
     --primary-color: #0f172a;
     --primary-dark: #1e1b4b;
     --secondary-color: #7c3aed;
-    --accent-color: #06b6d4;
+    --accent-color: #fafafa;
     --accent-light: #a78bfa;
     --dark: #0f172a;
     --dark-light: #1e1b4b;
@@ -41,14 +41,14 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #000000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transition: all 0.3s ease;
 }
 
 .navbar.scrolled {
-    padding: 10px 0;
+    padding: 5px 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -56,7 +56,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 8px 0;
 }
 
 .logo {
@@ -67,29 +67,40 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 12px;
     transition: all 0.3s ease;
 }
 
 .logo-container:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
 }
 
 .logo-icon {
-    width: 45px;
-    height: 45px;
+    width: 100px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: logoFloat 3s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+.logo-icon img {
+    width: 200%;
+    height: 200%;
+    object-fit: contain;
+    object-position: 10% center;
+    transition: transform 0.3s ease;
+}
+
+.logo-icon:hover img {
+    transform: scale(1.05);
 }
 
 .logo-icon svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 4px 12px rgba(6, 182, 212, 0.3));
+    filter: drop-shadow(0 4px 12px rgba(132, 1, 255, 0.616));
 }
 
 .logo-text h2 {
@@ -127,6 +138,24 @@ body {
     }
 }
 
+@keyframes logoPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(6, 182, 212, 0);
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -135,7 +164,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: var(--dark);
+    color: #ffffff;
     font-weight: 500;
     position: relative;
     transition: color 0.3s ease;
@@ -148,12 +177,12 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--primary-color);
+    background: #06b6d4;
     transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--primary-color);
+    color: #06b6d4;
 }
 
 .nav-link:hover::after {
@@ -171,7 +200,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--dark);
+    background: #ffffff;
     transition: all 0.3s ease;
     border-radius: 3px;
 }
@@ -196,6 +225,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-top: 200px;
 }
 
 
@@ -811,7 +841,25 @@ section {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    .logo-icon {
+        width: 100px;
+        height: 100px;
+        margin-left: 2cm;
+    }
+}
+
 @media (max-width: 768px) {
+    .logo-icon {
+        width: 80px;
+        height: 60px;
+    }
+
+    .logo-container {
+        gap: 20px;
+        padding: 20px;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -821,11 +869,11 @@ section {
         left: -100%;
         top: 80px;
         flex-direction: column;
-        background: var(--white);
+        background: var(--black);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 27px rgb(250, 250, 250);
         padding: 20px 0;
     }
 
@@ -1126,7 +1174,7 @@ section {
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 .section-badge {
-    background: rgb(5, 223, 223);
+    background: rgb(130, 8, 243);
     backdrop-filter: blur(10px);
 }
 
@@ -1507,7 +1555,7 @@ section {
 
 .portfolio-result {
     display: inline-block;
-    background: #10b981;
+    background: #7d00d1;
     padding: 8px 18px;
     border-radius: 20px;
     font-size: 13px;
@@ -2100,6 +2148,10 @@ section {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding-top: 140px;
+    }
+
     .form-row {
         grid-template-columns: 1fr;
     }

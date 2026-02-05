@@ -440,7 +440,7 @@ function startPromoTimer() {
     // Define o tempo final (3 dias a partir de agora para exemplo)
     // ALTERE O NÚMERO "3" ABAIXO PARA MUDAR OS DIAS DA PROMOÇÃO
     const endDate = new Date();
-    endDate.setDate(endDate.getDate() + 7);  // ← ALTERE ESTE NÚMERO
+    endDate.setDate(endDate.getDate() + 2);  // ← ALTERE ESTE NÚMERO
     endDate.setHours(23, 59, 59, 999);
 
     function updateTimer() {
