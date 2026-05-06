@@ -203,46 +203,46 @@ contactForm.addEventListener('submit', async (e) => {
 
     // Simple validation
     if (!name || !email || !message) {
-        showMessage('Por favor, preencha todos os campos obrigatórios!', 'error');
+        showMessage('Please fill in all required fields!', 'error');
         return;
     }
 
     if (!validateEmail(email)) {
-        showMessage('Por favor, insira um email válido!', 'error');
+        showMessage('Please enter a valid email address!', 'error');
         return;
     }
 
-    if (phone && phone.length < 10) {
-        showMessage('Por favor, insira um telefone válido!', 'error');
+    if (phone && phone.length < 8) {
+        showMessage('Please enter a valid phone number!', 'error');
         return;
     }
 
     // Show loading state
     const submitBtn = contactForm.querySelector('.btn');
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<span class="loading"></span> Enviando...';
+    submitBtn.innerHTML = '<span class="loading"></span> Sending...';
     submitBtn.disabled = true;
 
-    // Traduzir nome do serviço
     const serviceNames = {
-        'cardapio': 'Cardápio Digital',
-        'site': 'Site Profissional',
-        'loja': 'Loja Virtual',
-        'agendamento': 'Sistema de Agendamento',
-        'linkbio': 'Link Bio',
-        'personalizado': 'Sistema Personalizado'
+        'ai-rescue': '🤖 AI Project — Deploy & Fix',
+        'cardapio': 'Digital Menu',
+        'site': 'Professional Website',
+        'loja': 'Online Store',
+        'agendamento': 'Booking System',
+        'linkbio': 'Bio Link Page',
+        'personalizado': 'Custom System'
     };
 
     const serviceName = serviceNames[service] || service;
 
-    // Criar mensagem para WhatsApp
-    let whatsappMessage = `🚀 *SOLICITAÇÃO DE ORÇAMENTO*\n\n`;
-    whatsappMessage += `👤 *Nome:* ${name}\n`;
+    // Build WhatsApp message
+    let whatsappMessage = `🚀 *QUOTE REQUEST*\n\n`;
+    whatsappMessage += `👤 *Name:* ${name}\n`;
     whatsappMessage += `📧 *Email:* ${email}\n`;
-    whatsappMessage += `📱 *WhatsApp:* ${phone || 'Não informado'}\n`;
-    whatsappMessage += `💼 *Serviço:* ${serviceName}\n\n`;
-    whatsappMessage += `📝 *Mensagem:*\n${message}\n\n`;
-    whatsappMessage += `_Enviado através do site DevLuna_`;
+    whatsappMessage += `📱 *Phone/WhatsApp:* ${phone || 'Not provided'}\n`;
+    whatsappMessage += `💼 *Service:* ${serviceName}\n\n`;
+    whatsappMessage += `📝 *Message:*\n${message}\n\n`;
+    whatsappMessage += `_Sent via DevLuna website_`;
 
     // Codificar mensagem para URL
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -258,8 +258,8 @@ contactForm.addEventListener('submit', async (e) => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
 
-        // Mostrar mensagem de sucesso
-        showMessage('✅ Redirecionando para o WhatsApp...', 'success');
+        // Show success message
+        showMessage('✅ Redirecting to WhatsApp...', 'success');
 
         // Abrir WhatsApp em nova aba
         window.open(whatsappURL, '_blank');
@@ -420,8 +420,8 @@ window.addEventListener('resize', () => {
 });
 
 // Console message for developers
-console.log('%c🚀 DevLuna - Seu Negócio Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
-console.log('%c✨ Quer um site como este? Entre em contato!', 'color: #ec4899; font-size: 16px;');
+console.log('%c🚀 DevLuna - Your Business Online!', 'color: #6366f1; font-size: 24px; font-weight: bold;');
+console.log('%c✨ Want a site like this? Get in touch!', 'color: #ec4899; font-size: 16px;');
 
 // Promo Timer Countdown
 // ============================================
@@ -489,7 +489,7 @@ function animateValue(element, start, end, duration) {
     const timer = setInterval(() => {
         current += increment;
         if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-            element.textContent = end.toLocaleString('pt-BR');
+            element.textContent = end.toLocaleString('en-US');
             clearInterval(timer);
         } else {
             element.textContent = Math.floor(current).toLocaleString('pt-BR');
